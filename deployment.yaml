@@ -1,12 +1,19 @@
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: app-globo-pod
-  labels:
-    app: app-globo
+  name: app-globo-deployment
 spec:
-  containers:
-    - name: app-globo-container
-      image: fernandohs99/app_globo:${BUILD_ID}
-      ports:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app-globo
+  template:
+    metadata:
+      labels:
+        app: app-globo
+    spec:
+      containers:
+      - name: app-globo-container
+        image: fernandohs99/app_globo:${BUILD_ID}
+        ports:
         - containerPort: 5000
