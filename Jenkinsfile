@@ -17,7 +17,7 @@ pipeline {
         stage('Deploy para Kubernetes') {
             steps {
                 script {
-                    withKubeConfig([credentialsId: 'kubeconfig', serverUrl: 'https://localhost']) {
+                    withKubeConfig([credentialsId: 'kubeconfig', serverUrl: 'https://localhost:6443']) {
                     bat 'C:/Users/Fernando/kubectl apply -f deployment.yaml --validate=false'
                     }
                 }
