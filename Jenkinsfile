@@ -14,11 +14,12 @@ pipeline {
                 }
             }
         }
-        stage('Deploy to Kubernetes') {
+        stage('Deploy para Kubernetes') {
             steps {
                 script {
-                    "bat C:/Users/Fernando/kubectl apply -f deployment.yaml --validate=false"
-
+                    withKubeConfig([credentialsId: 'kubeconfig', serverUrl: 'https://localhost']) {
+                    bat 'C:/Users/Fernando/kubectl apply -f deployment.yaml --validate=false'
+                    }
                 }
             }
         }
