@@ -2,9 +2,11 @@ pipeline {
     agent any
 
     stages {
-        stage('Clone de Repositório') {
+        stage('Build Image') {
             steps {
-                git 'https://github.com/FernandoHenriqueSilva/globodevops.git'
+                    script {
+                        docker.build('app_globo:vbeta')
+                    }
             }
         }
     }
