@@ -2,23 +2,17 @@ pipeline {
     agent any
 
     stages {
-        stage('Build Image') {
+        stage('Build and Push Image') {
             steps {
-                    script {
-                        docker.build("app_globo:${env.BUILD_ID}")
-                    }
-            }
-        }
-        stage ('Push Image') {
-           steps {
                 script {
+                    docker.build("fernandohs99/app_globo:${env.BUILD_ID}")
                     docker.withRegistry('https://index.docker.io/v1/', 'dockerhub') {
-                    docker.image("fernandohs99/app_globo:${env.BUILD_ID}").push("${env.BUILD_ID}")
+                        def appGloboImage = docker.image("fernandohs99/app_globo:${env.BUILD_ID}")
+                        appGloboImage.push("latest")
+                        appGloboImage.push("${env.BUILD_ID}")
                     }
                 }
             }
         }
     }
 }
-
-    
