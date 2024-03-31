@@ -14,6 +14,7 @@ spec:
     spec:
       containers:
       - name: app-globo-container
-        image: fernandohs99/app_globo:${BUILD_ID}
+        image: fernandohs99/app_globo:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 5000
