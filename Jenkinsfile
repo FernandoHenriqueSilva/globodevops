@@ -5,7 +5,7 @@ pipeline {
         stage('Build Image') {
             steps {
                     script {
-                        docker.build('app_globo:vbeta')
+                        docker.build("app_globo:${env.BUILD_ID}")
                     }
             }
         }
