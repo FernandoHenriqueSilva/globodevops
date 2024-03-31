@@ -3,9 +3,9 @@ pipeline {
 
     stages {
         stage('Clone de Repositório') {
-            steps {`
+            steps {
                 echo 'Iniciando Pipeline'
-                }
-            git 'https://github.com/FernandoHenriqueSilva/globodevops.git
+            }
+            git 'https://github.com/FernandoHenriqueSilva/globodevops.git'
         }
     }

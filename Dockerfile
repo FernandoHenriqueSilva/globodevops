@@ -1,4 +1,4 @@
-# Dockerfile para aplicação Python API REST
+# Dockerfile para aplicação Python - API REST
 FROM python:3.9-slim
 WORKDIR /app
 COPY . .
