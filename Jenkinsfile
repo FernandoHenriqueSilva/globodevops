@@ -9,3 +9,5 @@ pipeline {
             git 'https://github.com/FernandoHenriqueSilva/globodevops.git'
         }
     }
+}
+    
