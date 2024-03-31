@@ -17,7 +17,8 @@ pipeline {
         stage('Deploy to Kubernetes') {
             steps {
                 script {
-                    "bat C:/Users/Fernando/kubectl apply -f deployment.yaml" --validate=false
+                    "bat C:/Users/Fernando/kubectl apply -f deployment.yaml --validate=false"
+
                 }
             }
         }
